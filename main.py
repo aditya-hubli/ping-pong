@@ -1,7 +1,7 @@
 import pygame
 from game.game_engine import GameEngine
 
-# Initialize pygame/Start application
+# Initialize pygame
 pygame.init()
 
 # Screen dimensions
@@ -31,6 +31,10 @@ def main():
         engine.handle_input()
         engine.update()
         engine.render(SCREEN)
+
+        if engine.game_over:
+            engine.display_game_over(SCREEN)
+            engine.replay_menu(SCREEN)  # Task 3 replay option
 
         pygame.display.flip()
         clock.tick(FPS)
